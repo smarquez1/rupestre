@@ -8,6 +8,15 @@ export default function Home() {
       <Head>
         <title>Rupestre</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta property="og:url" content="https://rupestrehuevos.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Rupestre Huevos" />
+        <meta
+          property="og:description"
+          content="Rupestre: huevos de hormigon"
+        />
+        <meta property="og:image" content="/apple-touch-icon.png" />
       </Head>
 
       <main className={styles.main}>
