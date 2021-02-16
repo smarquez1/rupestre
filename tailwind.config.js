@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: (theme) => ({
-        main: "url('public/images/background-main.png')",
+        main: "url('public/images/wendell-shinn-dWC-Nijufzo-unsplash.png')",
       }),
     },
   },
