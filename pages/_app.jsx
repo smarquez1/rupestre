@@ -1,7 +1,8 @@
 import Head from "next/head"
 import PropTypes from "prop-types"
 
-import "styles/globals.css"
+// import "bulma/css/bulma.css";
+import "styles/globals.scss"
 import Footer from "components/common/Footer"
 import Navbar from "components/common/Navbar"
 
@@ -18,7 +19,6 @@ const MyApp = ({ Component, pageProps }) => {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
         {/* <!-- OG: 2.7.6 --> */}
         <meta property="og:url" content="https://rupestrehuevos.com" />
         <meta property="og:type" content="website" />
@@ -26,11 +26,16 @@ const MyApp = ({ Component, pageProps }) => {
         <meta property="og:description" content={description} />
         <meta property="og:image" content="/apple-touch-icon.png" />
       </Head>
-      <Navbar />
-      <main>
-        <Component {...pageProps} />
+
+      <body className="has-navbar-fixed-top">
+        <Navbar />
+        <section class="section">
+          <div class="container">
+            <Component {...pageProps} />
+          </div>
+        </section>
         <Footer />
-      </main>
+      </body>
     </div>
   )
 }

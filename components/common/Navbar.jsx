@@ -4,7 +4,7 @@ import Image from "next/image"
 import { withRouter } from 'next/router'
 import classNames from "classnames"
 
-export const NavBrand = (props) => {
+export const NavBrand = () => {
   return(
     <Link href="/">
       <a className="nav-link">
@@ -14,7 +14,6 @@ export const NavBrand = (props) => {
           height={24}
           width={24}
         />
-        <span class="font-semibold text-xl uppercase">Rupestre</span>
       </a>
     </Link>
   )
@@ -23,7 +22,7 @@ export const NavBrand = (props) => {
 export const NavLink = (props) => {
   //   "is-active": props.pathname
   let className = classNames(
-    `block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200  mr-4 uppercase`,
+    `navbar-item is-uppercase`,
     { "text-black": !props.isScrolled },
   )
 
@@ -43,35 +42,40 @@ const NavBar = ({ router: { pathname } }) => {
     window.pageYOffset > 500 ? setIsScrolled(true) : setIsScrolled(false)
   }
 
-  const navClass = classNames(`flex items-center justify-between flex-wrap p-6 fixed w-full py-4 transition all duration-700`, {
-    "bg-white": isScrolled,
+  const navClass = classNames(`navbar is-transparent is-fixed-top`, {
+    "is-white": isScrolled,
   })
 
   return (
-    <nav class={navClass}>
-      <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <NavBrand/>
+    <nav className={navClass} role="navigation" aria-label="main navigation">
+      <div className="navbar-brand">
+        <NavBrand />
+
+        <a role="button" className="navbar-burger" aria-label="menu"
+          aria-expanded="false" data-target="navbar">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
-      {/* responsive menu */}
-      <div class="block lg:hidden">
-        <button class="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white">
-          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-          </svg>
-        </button>
-      </div>
-      {/* responsive menu */}
-      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div class="text-sm lg:flex-grow">
+
+      <div id="navbar" className="navbar-menu">
+        <div className="navbar-start">
           <NavLink path="/story" label="Historia" pathname/>
           <NavLink path="/about" label="Quien soy" pathname/>
           <NavLink path="/contact" label="Contacto" pathname/>
         </div>
-        <div>
-          <a href="#" class="inline-block text-white hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
-            ARG
-          </a>
+
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a className="navbar-link"> ARG </a>
+              <div className="navbar-dropdown">
+                <a className="navbar-item"> Portugues </a>
+                <a className="navbar-item"> Ingles </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
