@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="344px" height="98px" viewBox="0 0 344 98" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>pielihueso</title>
+    <g id="proto" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="Helvetica" font-weight="normal">
+        <g id="web-pro3" transform="translate(-874.000000, -3353.000000)" fill="#FFFFFF">
+            <g id="clientes.1" transform="translate(0.000000, 3160.000000)">
+                <g id="pielihueso" transform="translate(874.000000, 193.000000)">
+                    <text id="PIELIHUESO" font-size="48" letter-spacing="5.5">
+                        <tspan x="0.453125" y="47">PIELIHUESO</tspan>
+                    </text>
+                    <text id="vinos-con-piel" font-size="33" letter-spacing="3.78125">
+                        <tspan x="3.05639648" y="90">vinos con piel</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

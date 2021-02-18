@@ -1,10 +1,11 @@
 import Head from "next/head"
 import PropTypes from "prop-types"
 
-// import "bulma/css/bulma.css";
-import "styles/globals.scss"
 import Footer from "components/common/Footer"
 import Navbar from "components/common/Navbar"
+
+import "styles/globals.scss"
+import "styles/Header.scss"
 
 const MyApp = ({ Component, pageProps }) => {
   const description = "Rupestre: vasijas ovoides"
@@ -25,15 +26,13 @@ const MyApp = ({ Component, pageProps }) => {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content="/apple-touch-icon.png" />
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
       </Head>
 
-      <body className="has-navbar-fixed-top">
+      <body>
+        {/* <body className="has-navbar-fixed-top"> */}
         <Navbar />
-        <section class="section">
-          <div class="container">
-            <Component {...pageProps} />
-          </div>
-        </section>
+        <Component {...pageProps} />
         <Footer />
       </body>
     </div>

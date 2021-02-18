@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import ScrollToTop from "components/common/ScrollToTop"
 import { withRouter } from 'next/router'
 import classNames from "classnames"
 
 export const NavBrand = () => {
-  return(
+  return (
     <Link href="/">
       <a className="nav-link">
         <Image
-          src="/rupestre-symbol.png"
+          src="/images/brand.svg"
           alt="rupestre-symbol"
-          height={24}
-          width={24}
+          height={100}
+          width={200}
         />
       </a>
     </Link>
@@ -21,62 +22,69 @@ export const NavBrand = () => {
 
 export const NavLink = (props) => {
   //   "is-active": props.pathname
-  let className = classNames(
-    `navbar-item is-uppercase`,
-    { "text-black": !props.isScrolled },
-  )
+  let className = classNames(`navbar-item is-uppercase`)
 
-  return(
+  return (
     <Link href={props.path}><a className={className}> {props.label} </a></Link>
   )
 }
 
 const NavBar = ({ router: { pathname } }) => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuActive, setisMenuActive] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll)
   })
 
   const handleScroll = () => {
-    window.pageYOffset > 500 ? setIsScrolled(true) : setIsScrolled(false)
+    window.pageYOffset > "18rem" ? setIsScrolled(true) : setIsScrolled(false)
   }
 
-  const navClass = classNames(`navbar is-transparent is-fixed-top`, {
+  const navBarClass = classNames(`navbar is-fixed-top`, {
+    "is-dark is-transparent": !isScrolled,
     "is-white": isScrolled,
   })
 
   return (
-    <nav className={navClass} role="navigation" aria-label="main navigation">
+    <nav className={navBarClass} role="navigation" aria-label="main navigation">
+      <ScrollToTop />
       <div className="navbar-brand">
         <NavBrand />
-
-        <a role="button" className="navbar-burger" aria-label="menu"
-          aria-expanded="false" data-target="navbar">
+        <a
+          onClick={() => {
+            setisMenuActive(!isMenuActive);
+          }}
+          role="button"
+          className={`navbar-burger burger ${isMenuActive ? "is-active" : ""}`}
+          data-target="navMenu"
+          aria-label="menu" aria-expanded="false">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
 
-      <div id="navbar" className="navbar-menu">
+      <div
+        id="navMenu"
+        className={`navbar-menu ${isMenuActive && "is-active"}`}>
         <div className="navbar-start">
-          <NavLink path="/story" label="Historia" pathname/>
-          <NavLink path="/about" label="Quien soy" pathname/>
-          <NavLink path="/contact" label="Contacto" pathname/>
+          <NavLink path="/story" label="Historia" pathname />
+          <NavLink path="/about" label="Quien soy" pathname />
+          <NavLink path="/contact" label="Contacto" pathname />
         </div>
 
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link"> ARG </a>
-              <div className="navbar-dropdown">
-                <a className="navbar-item"> Portugues </a>
-                <a className="navbar-item"> Ingles </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* TODO: Add when we have translations */}
+        {/* <div className="navbar-end"> */}
+        {/*   <div className="navbar-item has-dropdown is-hoverable"> */}
+        {/*     <a className="navbar-link"> ARG </a> */}
+
+        {/*     <div className="navbar-dropdown"> */}
+        {/*       <a className="navbar-item"> Portugues </a> */}
+        {/*       <a className="navbar-item"> Ingles </a> */}
+        {/*     </div> */}
+        {/*   </div> */}
+        {/* </div> */}
       </div>
     </nav>
   )

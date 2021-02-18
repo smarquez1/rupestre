@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="340px" height="196px" viewBox="0 0 340 196" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>passionatewine</title>
+    <g id="proto" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="Times-Roman, Times" font-size="52.8" font-weight="normal" line-spacing="52.8">
+        <g id="web-pro3" transform="translate(-47.000000, -3304.000000)" fill="#FFFFFF">
+            <g id="clientes.1" transform="translate(0.000000, 3160.000000)">
+                <g id="passionatewine" transform="translate(47.000000, 144.000000)">
+                    <text id="PASSIONATE-WINE">
+                        <tspan x="3.67265625" y="75.765625">PASSIONATE</tspan>
+                        <tspan x="312.970312" y="95.8492187" font-family="Mshtakan"> </tspan>
+                        <tspan x="90.7746094" y="128.565625">WINE</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
