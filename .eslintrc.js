@@ -39,19 +39,10 @@ module.exports = {
       "error",
       {
         "newlines-between": "always",
-        alphabetize: {
-          order: "asc",
-          caseInsensitive: true,
-        },
+        alphabetize: { order: "asc", caseInsensitive: true },
       },
     ],
-    "prettier/prettier": [
-      "error",
-      {},
-      {
-        usePrettierrc: true,
-      },
-    ],
+    "prettier/prettier": "error",
     "react/prop-types": 0,
     "react/react-in-jsx-scope": "off",
   },

@@ -1,37 +1,59 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
+import styled from "styled-components"
 
-export default function ScrollToTop() {
-  const [isVisible, setIsVisible] = useState(false);
+const ScrollToTop = () => {
+  const [isVisible, setIsVisible] = useState(false)
 
-  const toggleVisibility = () => {
+  const toggleVisible = () => {
     if (window.pageYOffset > 200) {
-      console.log('scroll')
-      setIsVisible(true);
+      setIsVisible(true)
     } else {
-      setIsVisible(false);
+      setIsVisible(false)
     }
-  };
+  }
 
-  const scrollToTop = () => {
+  const handleClick = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
-    });
-  };
+      behavior: "smooth",
+    })
+  }
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
-  }, []);
+    window.addEventListener("scroll", toggleVisible)
+  }, [])
 
   return (
-    <div className="scrolltop">
-      {/* <div className="scroll-to-top"> */}
-      {
-        isVisible &&
-        <a className="icon scrollTop" onClick={scrollToTop}>
-          <i className="fa fa-chevron-up"></i>
-        </a>
-      }
-    </div >
-  );
+    <>
+      {isVisible && (
+        <Container>
+          <a className="icon" onClick={handleClick}>
+            <i className="fas fa-chevron-up">SCROLL</i>
+          </a>
+        </Container>
+      )}
+    </>
+  )
 }
+
+const Container = styled.div`
+  position: fixed;
+  width: 100%;
+  bottom: 20px;
+  align-items: center;
+  height: 20px;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+  color: black;
+  background-color: black;
+
+  &:hover {
+    opacity: 1;
+  }
+`
+
+export default ScrollToTop

@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import ScrollToTop from "components/common/ScrollToTop"
-import { withRouter } from 'next/router'
 import classNames from "classnames"
+import Image from "next/image"
+import Link from "next/link"
+import { withRouter } from "next/router"
+import { useEffect, useState } from "react"
+import styled from "styled-components"
+
+import ScrollToTop from "components/common/ScrollToTop"
 
 export const NavBrand = () => {
   return (
@@ -25,20 +27,22 @@ export const NavLink = (props) => {
   let className = classNames(`navbar-item is-uppercase`)
 
   return (
-    <Link href={props.path}><a className={className}> {props.label} </a></Link>
+    <Link href={props.path}>
+      <a className={className}> {props.label} </a>
+    </Link>
   )
 }
 
 const NavBar = ({ router: { pathname } }) => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuActive, setisMenuActive] = useState(false);
+  const [isMenuActive, setisMenuActive] = useState(false)
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll)
   })
 
   const handleScroll = () => {
-    window.pageYOffset > "18rem" ? setIsScrolled(true) : setIsScrolled(false)
+    window.pageYOffset > "500" ? setIsScrolled(true) : setIsScrolled(false)
   }
 
   const navBarClass = classNames(`navbar is-fixed-top`, {
@@ -47,18 +51,24 @@ const NavBar = ({ router: { pathname } }) => {
   })
 
   return (
-    <nav className={navBarClass} role="navigation" aria-label="main navigation">
+    <NavBarContainer
+      className={navBarClass}
+      role="navigation"
+      aria-label="main navigation"
+    >
       <ScrollToTop />
       <div className="navbar-brand">
         <NavBrand />
         <a
           onClick={() => {
-            setisMenuActive(!isMenuActive);
+            setisMenuActive(!isMenuActive)
           }}
           role="button"
           className={`navbar-burger burger ${isMenuActive ? "is-active" : ""}`}
           data-target="navMenu"
-          aria-label="menu" aria-expanded="false">
+          aria-label="menu"
+          aria-expanded="false"
+        >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -67,7 +77,8 @@ const NavBar = ({ router: { pathname } }) => {
 
       <div
         id="navMenu"
-        className={`navbar-menu ${isMenuActive && "is-active"}`}>
+        className={`navbar-menu ${isMenuActive && "is-active"}`}
+      >
         <div className="navbar-start">
           <NavLink path="/story" label="Historia" pathname />
           <NavLink path="/about" label="Quien soy" pathname />
@@ -86,8 +97,18 @@ const NavBar = ({ router: { pathname } }) => {
         {/*   </div> */}
         {/* </div> */}
       </div>
-    </nav>
+    </NavBarContainer>
   )
 }
+
+const NavBarContainer = styled.nav`
+  &.is-transparent {
+    background-color: transparent;
+    // TODO: not working
+    .navbar-item:hover {
+      background-color: white;
+    }
+  }
+`
 
 export default withRouter(NavBar)
