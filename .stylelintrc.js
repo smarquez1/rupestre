@@ -1,6 +1,9 @@
-module.exports = {
-  extends: ["stylelint-config-recommended"],
-  rules: {
-    "at-rule-no-unknown": [true, { ignoreAtRules: ["tailwind"] }],
-  },
+{
+  "processors": [
+    "stylelint-processor-styled-components"
+  ],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-styled-components"
+  ]
 }

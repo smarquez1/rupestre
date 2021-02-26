@@ -1,5 +1,6 @@
 // import PropTypes from "prop-types"
 import Head from "next/head"
+
 import Footer from "components/common/Footer"
 import Navbar from "components/common/Navbar"
 import "styles/globals.scss"
@@ -15,7 +16,7 @@ const MyApp = ({ Component, pageProps }) => {
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* <!-- OG: 2.7.6 --> */}

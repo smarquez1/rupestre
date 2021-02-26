@@ -104,6 +104,7 @@ const NavBar = ({ router: { pathname } }) => {
 const NavBarContainer = styled.nav`
   &.is-transparent {
     background-color: transparent;
+
     // TODO: not working
     .navbar-item:hover {
       background-color: white;
